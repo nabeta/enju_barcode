@@ -2,7 +2,9 @@ PATH
   remote: .
   specs:
     enju_barcode (0.0.1)
+      barby (~> 0.5)
       rails (~> 3.1.1)
+      rqrcode
 
 GEM
   remote: http://rubygems.org/
@@ -93,7 +95,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  barby (~> 0.5)
   enju_barcode!
-  rqrcode
   sqlite3
