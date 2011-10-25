@@ -2,7 +2,7 @@ class BarcodesController < ApplicationController
   load_and_authorize_resource
 
   # GET /barcodes
-  # GET /barcodes.xml
+  # GET /barcodes.json
   def index
     @barcodes = Barcode.page(params[:page])
     @start_rows = params[:start_rows]
@@ -15,30 +15,30 @@ class BarcodesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @barcodes }
+      format.json { render :json => @barcodes }
     end
   end
 
   # GET /barcodes/1
-  # GET /barcodes/1.xml
+  # GET /barcodes/1.json
   def show
     @barcode = Barcode.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @barcode }
-      format.svg { send_data @barcode.data, :type => 'image/svg+xml', :disposition => 'inline' }
+      format.json { render :json => @barcode }
+      format.svg { send_data @barcode.data, :type => 'image/svg+json', :disposition => 'inline' }
     end
   end
 
   # GET /barcodes/new
-  # GET /barcodes/new.xml
+  # GET /barcodes/new.json
   def new
     @barcode = Barcode.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @barcode }
+      format.json { render :json => @barcode }
     end
   end
 
@@ -48,7 +48,7 @@ class BarcodesController < ApplicationController
   end
 
   # POST /barcodes
-  # POST /barcodes.xml
+  # POST /barcodes.json
   def create
     @barcode = Barcode.new(params[:barcode])
 
@@ -56,16 +56,16 @@ class BarcodesController < ApplicationController
       if @barcode.save
         flash[:notice] = t('controller.successfully_created', :model => t('activerecord.models.barcode'))
         format.html { redirect_to(@barcode) }
-        format.xml  { render :xml => @barcode, :status => :created, :location => @barcode }
+        format.json { render :json => @barcode, :status => :created, :location => @barcode }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @barcode.errors, :status => :unprocessable_entity }
+        format.json { render :json => @barcode.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # PUT /barcodes/1
-  # PUT /barcodes/1.xml
+  # PUT /barcodes/1.json
   def update
     @barcode = Barcode.find(params[:id])
 
@@ -73,23 +73,23 @@ class BarcodesController < ApplicationController
       if @barcode.update_attributes(params[:barcode])
         flash[:notice] = t('controller.successfully_updated', :model => t('activerecord.models.barcode'))
         format.html { redirect_to(@barcode) }
-        format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @barcode.errors, :status => :unprocessable_entity }
+        format.json { render :json => @barcode.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # DELETE /barcodes/1
-  # DELETE /barcodes/1.xml
+  # DELETE /barcodes/1.json
   def destroy
     @barcode = Barcode.find(params[:id])
     @barcode.destroy
 
     respond_to do |format|
       format.html { redirect_to(barcodes_url) }
-      format.xml  { head :ok }
+      format.json { head :ok }
     end
   end
 end
