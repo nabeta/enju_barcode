@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      barcode: バーコード
+
+    attributes:
+      barcode:
+        code_word: コードワード
+        data: データ

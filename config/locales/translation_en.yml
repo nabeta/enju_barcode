@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      barcode: "Barcode"
+
+    attributes:
+      barcode:
+        code_word: "Code word"
+        data: "Data"

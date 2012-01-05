@@ -22,8 +22,6 @@ class BarcodesController < ApplicationController
   # GET /barcodes/1
   # GET /barcodes/1.json
   def show
-    @barcode = Barcode.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @barcode }
@@ -44,7 +42,6 @@ class BarcodesController < ApplicationController
 
   # GET /barcodes/1/edit
   def edit
-    @barcode = Barcode.find(params[:id])
   end
 
   # POST /barcodes
@@ -67,8 +64,6 @@ class BarcodesController < ApplicationController
   # PUT /barcodes/1
   # PUT /barcodes/1.json
   def update
-    @barcode = Barcode.find(params[:id])
-
     respond_to do |format|
       if @barcode.update_attributes(params[:barcode])
         flash[:notice] = t('controller.successfully_updated', :model => t('activerecord.models.barcode'))
@@ -84,7 +79,6 @@ class BarcodesController < ApplicationController
   # DELETE /barcodes/1
   # DELETE /barcodes/1.json
   def destroy
-    @barcode = Barcode.find(params[:id])
     @barcode.destroy
 
     respond_to do |format|

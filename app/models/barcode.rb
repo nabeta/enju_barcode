@@ -1,3 +1,7 @@
+# TODO: Codarbar support
+require 'barby/barcode/code_39'
+require 'barby/outputter/svg_outputter'
+
 class Barcode < ActiveRecord::Base
   belongs_to :barcodable, :polymorphic => true
 
@@ -11,7 +15,7 @@ class Barcode < ActiveRecord::Base
   end
 
   def generate_barcode
-    self.data = Barby::Code128B.new(self.code_word).to_svg(:width => 150, :height => 70)
+    self.data = Barby::Code39.new(code_word).to_svg(:width => 150, :height => 70)
   end
 
   def is_readable_by(user, parent = nil)
