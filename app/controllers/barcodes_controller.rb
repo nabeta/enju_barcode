@@ -68,7 +68,7 @@ class BarcodesController < ApplicationController
       if @barcode.update_attributes(params[:barcode])
         flash[:notice] = t('controller.successfully_updated', :model => t('activerecord.models.barcode'))
         format.html { redirect_to(@barcode) }
-        format.json { head :ok }
+        format.json { head :no_content }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @barcode.errors, :status => :unprocessable_entity }
@@ -82,8 +82,8 @@ class BarcodesController < ApplicationController
     @barcode.destroy
 
     respond_to do |format|
-      format.html { redirect_to(barcodes_url) }
-      format.json { head :ok }
+      format.html { redirect_to barcodes_url }
+      format.json { head :no_content }
     end
   end
 end
