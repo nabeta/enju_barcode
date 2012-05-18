@@ -3,8 +3,6 @@ require 'barby/barcode/code_39'
 require 'barby/outputter/svg_outputter'
 
 class Barcode < ActiveRecord::Base
-  belongs_to :barcodable, :polymorphic => true
-
   validates_presence_of :code_word
   before_save :generate_barcode
 
