@@ -3,6 +3,7 @@ require 'barby/barcode/code_39'
 require 'barby/outputter/svg_outputter'
 
 class Barcode < ActiveRecord::Base
+  attr_accessible :code_word, :data
   validates_presence_of :code_word
   before_save :generate_barcode
 
@@ -20,3 +21,14 @@ class Barcode < ActiveRecord::Base
     true
   end
 end
+# == Schema Information
+#
+# Table name: barcodes
+#
+#  id         :integer         not null, primary key
+#  code_word  :string(255)
+#  data       :binary
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

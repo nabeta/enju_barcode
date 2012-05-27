@@ -7,3 +7,14 @@ barcode_00001:
 barcode_00002:
   data: 
   code_word: bbbbbb
+# == Schema Information
+#
+# Table name: barcodes
+#
+#  id         :integer         not null, primary key
+#  code_word  :string(255)
+#  data       :binary
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
