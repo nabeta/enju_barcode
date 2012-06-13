@@ -15,7 +15,7 @@
     <td><%= barcode.barcode_type -%></td>
     <td>
       <%= link_to t('page.edit'), edit_barcode_path(barcode) -%>
-      <%= link_to t('page.destroy'), barcode, :confirm => t('page.are_you_sure'), :method => :delete -%>
+      <%= link_to t('page.destroy'), barcode, :data => {:confirm => t('page.are_you_sure')}, :method => :delete -%>
     </td>
   </tr>
 <%- end -%>
