@@ -1,6 +1,6 @@
 require 'devise'
 require 'cancan'
-require 'will_paginate'
+require 'kaminari'
 
 module EnjuBarcode
   class Engine < ::Rails::Engine

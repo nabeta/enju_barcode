@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rqrcode"
   s.add_dependency "devise"
   s.add_dependency "cancan"
-  s.add_dependency "will_paginate"
+  s.add_dependency "kaminari"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"

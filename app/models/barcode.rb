@@ -9,9 +9,7 @@ class Barcode < ActiveRecord::Base
 
   attr_accessor :start_rows, :start_cols
 
-  def self.per_page
-    10
-  end
+  paginates_per 10
 
   def generate_barcode
     self.data = Barby::Code39.new(code_word).to_svg(:width => 150, :height => 70)
